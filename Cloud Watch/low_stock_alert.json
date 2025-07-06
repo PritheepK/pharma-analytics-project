@@ -1,0 +1,26 @@
+{
+  "AlarmName": "LowStockAlert",
+  "AlarmDescription": "Triggers when stock level drops below 100 in any warehouse",
+  "ActionsEnabled": true,
+  "MetricName": "StockLevel",
+  "Namespace": "PharmaInventory",
+  "Statistic": "Minimum",
+  "Dimensions": [
+    {
+      "Name": "DrugID",
+      "Value": "Any"
+    },
+    {
+      "Name": "WarehouseID",
+      "Value": "Any"
+    }
+  ],
+  "Period": 300,
+  "EvaluationPeriods": 1,
+  "Threshold": 100,
+  "ComparisonOperator": "LessThanThreshold",
+  "TreatMissingData": "breaching",
+  "AlarmActions": [
+    "arn:aws:sns:us-east-1:123456789012:NotifyOps"
+  ]
+}
